@@ -170,20 +170,6 @@
     </div>
 
     <script>
-        var options = {
-            controls: true,
-            width: 320,
-            height: 240,
-            fluid: false,
-            plugins: {
-                record: {
-                    audio: true,
-                    video: true,
-                    maxLength: 10,
-                    debug: true
-                }
-            }
-        };
 
         // apply some workarounds for opera browser
         applyVideoWorkaround();
@@ -199,16 +185,13 @@
             plugins: {
                 // videojs-record plugin options
                 record: {
-                    image: false,
-                    audio: false,
+                    audio: true,
                     video: true,
-                    maxLength: 5,
+                    maxLength: 10,
                     debug: true
                 }
             }
-        });
-
-        var player = videojs('myVideo', options, function () {
+        }, function () {
             // print version information at startup
             var msg = 'Using video.js ' + videojs.VERSION +
                 ' with videojs-record ' + videojs.getPluginVersion('record') +
