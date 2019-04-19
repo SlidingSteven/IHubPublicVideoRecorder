@@ -20,6 +20,15 @@ def share():
     return render_template("formpage.html")
 
 
+@app.route('/send/')
+def send():
+    if request.method == 'POST':
+        #// do stuff to get stuff out of request object
+        #send_email(...)
+        print(request)
+    else:
+        return render_template("formpage.html")
+
 @app.route('/bacon', methods=['GET', 'POST'])
 def bacon():
     if request.method == 'POST':

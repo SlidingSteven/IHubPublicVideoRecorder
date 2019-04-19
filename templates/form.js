@@ -54,7 +54,7 @@ $(function()
                     var formdata = new FormData(this);
             $.ajax({
                 type: "POST",
-                url: 'handler.php',
+                url: '/share/',
                 data: formdata,
                 success: after_form_submitted,
                 dataType: 'json' ,
