@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Audio/Video Example - Record Plugin for Video.js</title>
+
+  <link href="../node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
+  <link href="../dist/css/videojs.record.css" rel="stylesheet">
+
+  <script src="../node_modules/video.js/dist/video.min.js"></script>
+  <script src="../node_modules/recordrtc/RecordRTC.js"></script>
+  <script src="../node_modules/webrtc-adapter/out/adapter.js"></script>
+
+  <script src="../dist/videojs.record.js"></script>
+
+  <script src="browser-workarounds.js"></script>
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Share with us</h2> Send your video and information to us by using the email below and we will post it to our Facebook page!
+
+            <form role="form" method="post" id="reused_form" enctype="multipart/form-data"  >
+                <div class="form-group">
+                    <label for="name">
+                        Name:</label>
+                    <input type="text" class="form-control"
+                    id="name" name="name"  required maxlength="50">
+    
+                </div>
+                <div class="form-group">
+                    <label for="email">
+                        Your Email:</label>
+                    <input type="email" class="form-control"
+                    id="email" name="email" required maxlength="50">
+                </div>
+                <div class="form-group">
+                    <label for="name">
+                        Some name for your project and any other information:</label>
+                    <textarea class="form-control" type="textarea" name="message"
+                    id="message" placeholder="Your Message Here"
+                    maxlength="6000" rows="7"></textarea>
+                </div>
+    
+                            <div class="form-group">
+                    <label for="name">
+                        Image Upload:</label>
+                    <input type="file" class="form-control" id="image" name="image"  required>
+                </div>
+    
+    
+    
+    
+                <button type="submit" class="btn btn-lg btn-success pull-right" id="btnContactUs">Post It! →</button>
+    
+            </form>
+            <div id="success_message" style="width:100%; height:100%; display:none; ">
+                <h3>Sent your message successfully!</h3>
+            </div>
+            <div id="error_message"
+            style="width:100%; height:100%; display:none; ">
+                <h3>Error</h3>
+                Sorry there was an error sending your form.
+    
+            </div>
+        </div>
+    </div>
+    <script>
+            $(function()
+            {
+                function after_form_submitted(data)
+                {
+                    if(data.result == 'success')
+                    {
+                        $('form#reused_form').hide();
+                        $('#success_message').show();
+                        $('#error_message').hide();
+                    }
+                    else
+                    {
+                        $('#error_message').append('<ul></ul>');
+            
+                        jQuery.each(data.errors,function(key,val)
+                        {
+                            $('#error_message ul').append('<li>'+key+':'+val+'</li>');
+                        });
+                        $('#success_message').hide();
+                        $('#error_message').show();
+            
+                        //reverse the response on the button
+                        $('button[type="button"]', $form).each(function()
+                        {
+                            $btn = $(this);
+                            label = $btn.prop('orig_label');
+                            if(label)
+                            {
+                                $btn.prop('type','submit' );
+                                $btn.text(label);
+                                $btn.prop('orig_label','');
+                            }
+                        });
+            
+                    }//else
+                }
+            
+                $('#reused_form').submit(function(e)
+                  {
+                    e.preventDefault();
+            
+                    $form = $(this);
+                    //show some response on the button
+                    $('button[type="submit"]', $form).each(function()
+                    {
+                        $btn = $(this);
+                        $btn.prop('type','button' );
+                        $btn.prop('orig_label',$btn.text());
+                        $btn.text('Sending ...');
+                    });
+            
+            
+                                var formdata = new FormData(this);
+                        $.ajax({
+                            type: "POST",
+                            url: 'handler.php',
+                            data: formdata,
+                            success: after_form_submitted,
+                            dataType: 'json' ,
+                            processData: false,
+                            contentType: false,
+                            cache: false
+                        });
+            
+                  });
+            });
+            </script>
+         
+    </html>

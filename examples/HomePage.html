@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Audio/Video Example - Record Plugin for Video.js</title>
+
+  <link href="../node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
+  <link href="../dist/css/videojs.record.css" rel="stylesheet">
+
+  <script src="../node_modules/video.js/dist/video.min.js"></script>
+  <script src="../node_modules/recordrtc/RecordRTC.js"></script>
+  <script src="../node_modules/webrtc-adapter/out/adapter.js"></script>
+
+  <script src="../dist/videojs.record.js"></script>
+
+  <script src="browser-workarounds.js"></script>
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+  <style>
+  /* change player background color */
+  #myVideo {
+      background-color: #9ab87a;
+  }
+  </style>
+</head>
+
+<body>
+    <style>
+    .banner
+    {
+        background-image: linear-gradient(to bottom, red, white);
+        border: 1px groove #e0e0e0;
+        box-shadow: 4px 4px 4px #d0d0d0;
+        padding: 20px 20px 20px 20px;
+
+        font-size: 80px;
+        text-align: center;
+    }
+    </style>
+    <div class="banner">
+        <span class= "underline">Innovation Hub Video Recorder</span>
+    </div>
+    <p>
+            When you are ready, click on the record button below.  <br/>
+            Once you are done you will have the choice to review, save, or discard your video.  <br/>
+            Thanks for using the Hub!
+    </p>
+    <style>
+        .btn {
+            background-color: grey;
+            border: none;
+            color: white;
+            padding: 36px 36px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: black;
+        }
+    </style>
+    <body>
+    
+    <h2>Record Here</h2>
+    <a href="audio-video.html"><button class="btn"><i class="fa fa-video-camera" style="font-size:36px;"></i></button></a>
+    </body>
+</html>
