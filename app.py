@@ -11,9 +11,13 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/record')
+@app.route('/record/')
 def record():
     return render_template("record.html")
+
+@app.route('/share/')
+def share():
+    return render_template("formpage.html")
 
 
 @app.route('/bacon', methods=['GET', 'POST'])
