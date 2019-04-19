@@ -54,7 +54,7 @@ s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls() 
 
 # Authentication 
-s.login(fromaddr, "IhubPass2019") 
+s.login(fromaddr, "IhubPass2010") 
 
 # Converts the Multipart msg into a string 
 text = msg.as_string() 

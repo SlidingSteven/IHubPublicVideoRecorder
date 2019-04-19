@@ -1,2 +1,2 @@
 EMAIL_ADDRESS= "ihubvids@gmail.com"
-PASSWORD = "IhubPass2019"
+PASSWORD = "IhubPass2010"
