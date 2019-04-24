@@ -54,7 +54,7 @@ def send_email2():
         msg.attach(MIMEText(body, 'plain')) 
 
         # open the file to be sent 
-        filename = "video.webm"
+        filename = request.form['video']
         attachment = open(request.form['video'], "rb") 
 
         # instance of MIMEBase and named as p 
