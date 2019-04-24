@@ -1,2 +1,4 @@
-EMAIL_ADDRESS= "ihubvids@gmail.com"
-PASSWORD = "IhubPass2019"
+import os
+
+EMAIL_ADDRESS= os.environ.get('EMAIL_ADDRESS')
+PASSWORD = os.environ.get('PASSWORD')

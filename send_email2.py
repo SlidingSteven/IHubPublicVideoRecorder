@@ -41,7 +41,6 @@ p.set_payload((attachment).read())
 
 # encode into base64 
 encoders.encode_base64(p) 
-
 p.add_header('Content-Disposition', "attachment; filename= %s" % filename) 
 
 # attach the instance 'p' to instance 'msg' 

@@ -6,24 +6,12 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText 
 from email.mime.base import MIMEBase 
 from email import encoders 
-import os
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def home():
-    return render_template("index.html")
-
-
-@app.route('/record/')
-def record():
-    return render_template("record.html")
-
-@app.route('/share/')
-def share():
-    return render_template("formpage.html")
-
+def index():
+    return 'Message Sent!'
 
 @app.route('/send/', methods=['GET', 'POST'])
 def send():
@@ -33,8 +21,8 @@ def send():
 def send_email2():
     if request.method == 'POST':
 
-        fromaddr = os.environ.get('EMAIL_ADDRESS')
-        toaddr = os.environ.get('EMAIL_ADDRESS')
+        fromaddr = "ihubvids@gmail.com"
+        toaddr = "ihubvids@gmail.com"
 
         # instance of MIMEMultipart 
         msg = MIMEMultipart() 
@@ -55,8 +43,8 @@ def send_email2():
         msg.attach(MIMEText(body, 'plain')) 
 
         # open the file to be sent 
-        filename = "video.webm"
-        attachment = open(request.form['video'], "rb") 
+        filename = "video1.webm"
+        attachment = open("video1.webm", "rb") 
 
         # instance of MIMEBase and named as p 
         p = MIMEBase('application', 'octet-stream') 
