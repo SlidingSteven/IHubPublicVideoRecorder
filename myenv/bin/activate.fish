@@ -29,6 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
+
 set -gx VIRTUAL_ENV "/mnt/c/Users/Steven Tucker/desktop/hw/Spring 2019/Tha Hub/github/videojs-record/myenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
@@ -52,6 +53,7 @@ if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"
         set -l old_status $status
 
         # Prompt override?
+
         if test -n "(myenv) "
             printf "%s%s" "(myenv) " (set_color normal)
         else

@@ -1,3 +1,4 @@
+
 #!/bin/sh
 '''exec' "/mnt/c/Users/Steven Tucker/desktop/hw/Spring 2019/Tha Hub/github/videojs-record/myenv/bin/python3.7" "$0" "$@"
 ' '''
@@ -5,7 +6,8 @@
 import re
 import sys
 
-from pip._internal import main
+from pip import main
+
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
