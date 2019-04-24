@@ -37,7 +37,9 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/mnt/c/Users/chris/code/IHubPublicVideoRecorder/myenv"
+
+VIRTUAL_ENV="/mnt/c/Users/Steven Tucker/desktop/hw/Spring 2019/Tha Hub/github/videojs-record/myenv"
+
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

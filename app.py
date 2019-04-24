@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from flask import Flask, render_template, request, redirect
+
 import smtplib 
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
@@ -57,12 +58,6 @@ def send_email2():
         # attach the body with the msg instance 
         msg.attach(MIMEText(body, 'plain')) 
 
-        # open the file to be sent 
-        # filename = "video.webm"
-        # print(request.form['video'])
-        # filename = request.files[0][0]
-        # attachment = request.files[0][1]
-
         video = request.files['video']
         print(video.filename)
         print(video)
@@ -73,19 +68,6 @@ def send_email2():
         # After the file is closed
         part['Content-Disposition'] = 'attachment; filename="%s"' % video.filename
         msg.attach(part)
-
-        # # instance of MIMEBase and named as p 
-        # p = MIMEBase('application', 'octet-stream') 
-
-        # # To change the payload into encoded form 
-        # p.set_payload((attachment).read()) 
-
-        # # encode into base64 
-        # encoders.encode_base64(p) 
-        # p.add_header('Content-Disposition', "attachment; filename= %s" % filename) 
-
-        # # attach the instance 'p' to instance 'msg' 
-        # msg.attach(p) 
 
         # creates SMTP session 
         s = smtplib.SMTP('smtp.gmail.com', 587) 
