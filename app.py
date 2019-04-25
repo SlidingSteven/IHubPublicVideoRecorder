@@ -37,17 +37,18 @@ def send_email2():
         print('FORM DATA:', request.form)
         print('FILES:', request.files)
 
-        fromaddr = os.environ.get('EMAIL_ADDRESS')
-        toaddr = request.form['email']
+        #fromaddr = os.environ.get('EMAIL_ADDRESS')
+        fromaddr = request.form['email']
+        toaddr = os.environ.get('EMAIL_ADDRESS')
 
         # instance of MIMEMultipart 
         msg = MIMEMultipart() 
 
         # storing the senders email address 
-        msg['From'] = request.form['name'] 
+        msg['From'] = fromaddr 
 
         # storing the receivers email address 
-        msg['To'] = request.form['email'] 
+        msg['To'] = toaddr 
 
         # storing the subject 
         msg['Subject'] = "Subject of the Mail"
@@ -76,7 +77,7 @@ def send_email2():
         s.starttls() 
 
         # Authentication 
-        s.login(fromaddr, os.environ.get('PASSWORD')) 
+        s.login(toaddr, os.environ.get('PASSWORD')) 
 
         # Converts the Multipart msg into a string 
         text = msg.as_string() 
@@ -87,7 +88,9 @@ def send_email2():
         # terminating the session 
         s.quit() 
 
-        return redirect('/', code=200)
+        #return redirect('/', code=200)
+        return redirect('/')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
