@@ -16,7 +16,7 @@ formpage.html is the page that will send the recording.
 
 ## Installing
 
-First you will need to go to the [project] (https://github.com/collab-project/videojs-record/) that built the code to do the recording.
+First you will need to go to the [project](https://github.com/collab-project/videojs-record/) that built the code to do the recording.
 After following the link, go to the installation section of their README and follow the steps to install their code.
 Next  you should install Flask, which should also install pip and python. [Here] (http://timmyreilly.azurewebsites.net/python-flask-windows-development-environment-setup/) is a good set of instructions to do that.
 
